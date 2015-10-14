@@ -10,6 +10,9 @@ RUN apt-get install -y mysql-server
 WORKDIR /etc/mysql
 RUN sed -i "s/127.0.0.1/0.0.0.0/g" my.cnf
 
+#volume add
+VOLUME ["/var/lib/mysql","/var/lib/mysql"]
+
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 EXPOSE 3306
